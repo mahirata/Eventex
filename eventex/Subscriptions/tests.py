@@ -17,7 +17,7 @@ class SubcribeTest(TestCase):
         """ html must contain inputs tags """
         self.assertContains(self.resp, '<form')
         self.assertContains(self.resp, '<input', 6)
-        self.assertContains(self.resp, 'type="test"', 3)
+        self.assertContains(self.resp, 'type="text"', 3)
         self.assertContains(self.resp, 'type="email"')
         self.assertContains(self.resp, 'type="submit"')
 
@@ -33,4 +33,4 @@ class SubcribeTest(TestCase):
     def test_form_has_fields(self):
         """ Form must have 4 fields """
         form = self.resp.context['form']
-        self.assertSequenceEqual(['name', 'cpf', 'emal', 'fone'], list(form.fields))
+        self.assertSequenceEqual(['name', 'cpf', 'email', 'phone'], list(form.fields))
